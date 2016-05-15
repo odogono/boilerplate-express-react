@@ -1,0 +1,10 @@
+[server]
+port = 4000
+
+[server.leiden-local]
+port = 4002
+
+[server.session]
+secret = "odgn-boilerplate"
+resave = false
+saveUninitialized = false

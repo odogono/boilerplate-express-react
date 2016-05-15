@@ -1,0 +1,155 @@
+@import "sass-flexbox";
+
+// 
+// Variables
+// 
+
+$font-stack:    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$primary-color: #000000;
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+
+.app-container {
+    min-height: 100%;
+    height: 100%;
+}
+
+.search-container {
+    @include display-flex();
+    @include align-items( center );
+
+    overflow-y: scroll;
+    position: relative;
+    height: 100%;
+    
+    
+    .search-box {
+        @include display-flex();
+        @include flex( 0, 0, auto );
+        @include flex-direction( column );
+        background-color: #808000;
+        padding: 10px;
+        margin: auto;
+        width: 512px;
+        
+        input {
+            border: solid 5px #800000;
+            font-size: 24px;
+            margin: auto;
+        }
+    }
+
+    #map {
+        margin-top: 10px;
+        height: 256px;
+        background-color: #008000;
+    }
+ 
+    .fields {
+        margin-top: 10px; 
+        background-color: #DEDEDE;
+        .field {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .cell {
+            display: table-cell;
+            height: 2em;
+            vertical-align: middle;
+            padding-left: 10px;
+        }
+        .cell.weather {
+            width: 4em;
+            background-color: white;
+        }
+        .header {
+            padding-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #FEFEFE;
+        }
+        .label {
+            padding-left: 10px;
+            background-color: #FEFEFE;
+            vertical-align: middle;
+        }
+        .icon { 
+            display: inline;
+            width:32px; height: 32px;
+        }
+    }
+}
+
+// login container appears above other divs and has absolute positioning
+.login-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+    @include display-flex();
+    @include align-items( center );
+    @include justify-content( center );
+    min-height: 100%;
+    height: 100%;
+}
+
+.login-box {
+    @include display-flex();
+    @include flex( 0, 0, auto );
+    max-width: 50%;
+    min-width: 20em;
+    height: 20em;
+    // flex-direction: column;
+    @include flex-direction( column );
+    background-color: #E6E6E6;
+
+    .header {
+        @include flex( 0.02 );
+        background-color: #66CCFF;
+        color: #FFF;
+
+        .legend {
+            font-size: 2em;
+            padding: 0.4em;
+            padding-left: 0.8em;
+            background-size: 28px 36px;
+            background-origin: padding-box;
+            background: url(/img/noun_9667_cc.svg) no-repeat left;
+            text-indent: 0.4em;
+            margin-left: 0.4em;
+        }
+        min-height: 4em;
+    }
+    .content {
+        @include flex( 1 );
+        @include display-flex();
+        @include align-items( center );
+        @include justify-content( center );
+    }
+
+    .login-button {
+        width: 193px;
+        height: 48px;
+        display: block;
+        background: url(/img/btn_google+_signin_dark_normal_web.png) no-repeat top;
+    }
+
+    .login-button:active {
+        background: url(/img/btn_google+_signin_dark_pressed_web.png) no-repeat top;
+    }
+}
+
